@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Music Contents Platform</title>
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+  <div class="container">
+    <div class="jumbotron text-center">
+  <h1 style="font-size:50px;">Music Contents Platform</h1><br>
+    <p style="
+  margin-bottom: 20px;">Welcome!{{user_name}}님!<br> Be rewarded with your voice.<br></p>
+</div>
+
+<!--0.로그아웃 버튼-->
+
+<form action="/logout">
+  <input type="submit" name="logout" value="Logout" class="btn btn-default" style="float:right">
+</form><br><br>
+
+
+
+
+  <!--1.회원정보창 오른쪽-->
+<ul class="list-group" style="float:right;">
+  <li class="list-group-item">{{user_name}}님 안녕하세요!</li>
+  <li class="list-group-item">Address : {{user_wallet}}</li>
+  <li class="list-group-item">Balance : {{show_token}}</li>
+</ul>
+
+
+  <!-- 2.upload 버튼 -->
+
+  <form action="http://localhost:5000/upload">
+    <input type="submit" name='upload' value="upload" class="btn btn-default">
+  </form>
+
+  <br><br>
+
+  <!-- 3. 업로드 출력화면 -->
+  <div>
+  {% for list in music_list %}
+
+  <li>
+    {{list}}
+    <audio controls>
+        <source src='./uploads/{{list}}' type='audio/mp3'>
+      </audio>
+  </li>
+  {% endfor %}
+
+</div>
+
+
+
+
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>

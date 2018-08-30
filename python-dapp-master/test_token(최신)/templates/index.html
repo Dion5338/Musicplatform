@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Music Contents Platform</title>
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="jumbotron text-center">
+  <h1 style="font-size:50px;">Music Contents Platform</h1><br>
+    <p style="
+  margin-bottom: 20px;">Be rewarded with your voice.<br></p>
+</div>
+  <!-- 0. login 버튼 -->
+
+  <form action="http://localhost:5000/login">
+    <input type="submit" name="login" value="login" class="btn btn-default" style="float:right">
+  </form>
+
+  <!-- 1. sign up 버튼 -->
+  <form action="http://localhost:5000/signup">
+    <input type="submit" name="signup" value="sign up" class="btn btn-default" style="float:right">
+  </form>
+  <br><br>
+  <br><br>
+
+  <!-- 2. 파일 출력화면-->
+  <div>
+  {% for list in music_list %}
+  <li>
+    {{list}}
+    <audio src="./uploads/{{list}}" type="file/mp3" controls></audio>
+  </li>
+  {% endfor %}
+</div>
+
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>

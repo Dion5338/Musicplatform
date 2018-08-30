@@ -1,0 +1,4 @@
+<!-- upload 버튼 -->
+<form action="/upload">
+  <input type="submit" name='upload' value="upload" class="btn btn-default">
+</form>
